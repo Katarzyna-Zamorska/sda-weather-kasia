@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-
-    public void run (){
+    public void run() {
         System.out.println("Aplikacja jest uruchomiona\n");
 
         Scanner scanner = new Scanner(System.in);
@@ -17,23 +16,19 @@ public class UserInterface {
 
             int option = scanner.nextInt();
 
-            switch (option){
+            switch (option) {
                 case 1: // tu dodaje wpis do bazy
                     createEntry();
                     break;
                 case 2: // tu wyświetlam dodane aktualne lokalizacje
                     getActualAddedEntries();
                     break;
-
                 case 3:// tu pobieram warunki pogodwe
                     getWeather();
                     break;
             }
-            }
-
-
         }
-
+    }
 
     private void getWeather() {
     }
@@ -43,6 +38,4 @@ public class UserInterface {
 
     private void createEntry() {
     }
-
-
 }
