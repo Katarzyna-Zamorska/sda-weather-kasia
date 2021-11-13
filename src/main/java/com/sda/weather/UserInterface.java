@@ -24,16 +24,16 @@ public class UserInterface {
             int option = scanner.nextInt();
 
             switch (option) {
-                case 1: // tu dodaje wpis do bazy
+                case 1:
                     createEntry();
                     break;
-                case 2: // tu wyświetlam dodane aktualne lokalizacje
+                case 2:
                     getActualAddedEntries();
                     break;
-                case 3:// tu pobieram warunki pogodwe
+                case 3:
                     getWeather();
                     break;
-                case 0: //tu wychodzę z aplikacji
+                case 0:
                     return;
             }
         }
@@ -51,17 +51,17 @@ public class UserInterface {
         String cityName = scanner.nextLine();
         System.out.println("Podaj długość geograficzną");
         String longitude = scanner.nextLine();
-        System.out.println("Podaj długość geograficzną");
+        System.out.println("Podaj szerokość geograficzną");
         String latitude = scanner.nextLine();
         System.out.println("Podaj region");
         String region = scanner.nextLine();
         System.out.println("Podaj nazwę kraju");
         String country = scanner.nextLine();
 
+
         String requestData = String.format("{\"cityName\":\"%s\", \"longitude\":\"%s\", \"latitude\":\"%s\", \"region\":\"%s\", \"country\":\"%s\"}",
                 cityName, longitude, latitude, region, country);
-        System.out.println(requestData);
-
+        String response= locationController.addLocation(requestData);
 
     }
 }
