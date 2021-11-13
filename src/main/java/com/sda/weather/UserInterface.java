@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 public class UserInterface {
 
+    private final LocationController locationController;
+
+    public UserInterface(com.sda.weather.LocationController locationController) {
+        this.locationController = locationController;
+    }
+
     public void run() {
         System.out.println("Aplikacja jest uruchomiona\n");
 
@@ -40,5 +46,19 @@ public class UserInterface {
     }
 
     private void createEntry() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj nazwę miasta");
+        String cityName = scanner.nextLine();
+        System.out.println("Podaj długość geograficzną");
+        String longitude = scanner.nextLine();
+        System.out.println("Podaj długość geograficzną");
+        String latitude = scanner.nextLine();
+        System.out.println("Podaj region");
+        String region = scanner.nextLine();
+        System.out.println("Podaj nazwę kraju");
+        String country = scanner.nextLine();
+
+        String requestData = String.format("{\"cityName\":\"%s\", \"longitude\":\"%s\", \"latitude\":\"%s\", \"region\":\"%s\", \"country\":\"%s\"}");
+
     }
 }
