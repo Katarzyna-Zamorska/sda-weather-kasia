@@ -11,8 +11,9 @@ public class UserInterface {
         while (true) {
             System.out.println("Witaj w aplikacji pogodowej, co chcesz zrobić?");
             System.out.println("1.Dodać nową lokalizację");
-            System.out.println("2.Wyświetlić aktualne dodane lokalizacje");
+            System.out.println("2.Wyświetlić aktualnie dodane lokalizacje");
             System.out.println("3.Pobrać warunki pogodowe");
+            System.out.println("0.Zamknąć aplikacje");
 
             int option = scanner.nextInt();
 
@@ -26,6 +27,8 @@ public class UserInterface {
                 case 3:// tu pobieram warunki pogodwe
                     getWeather();
                     break;
+                case 0: //tu wychodzę z aplikacji
+                    return;
             }
         }
     }
