@@ -6,7 +6,7 @@ public class UserInterface {
 
     private final LocationController locationController;
 
-    public UserInterface(com.sda.weather.LocationController locationController) {
+    public UserInterface(LocationController locationController) {
         this.locationController = locationController;
     }
 
@@ -39,13 +39,13 @@ public class UserInterface {
         }
     }
 
-    private void getWeather() {
+    public void getWeather() {
     }
 
-    private void getActualAddedEntries() {
+    public void getActualAddedEntries() {
     }
 
-    private void createEntry() {
+    public void createEntry() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj nazwę miasta");
         String cityName = scanner.nextLine();
@@ -58,7 +58,10 @@ public class UserInterface {
         System.out.println("Podaj nazwę kraju");
         String country = scanner.nextLine();
 
-        String requestData = String.format("{\"cityName\":\"%s\", \"longitude\":\"%s\", \"latitude\":\"%s\", \"region\":\"%s\", \"country\":\"%s\"}");
+        String requestData = String.format("{\"cityName\":\"%s\", \"longitude\":\"%s\", \"latitude\":\"%s\", \"region\":\"%s\", \"country\":\"%s\"}",
+                cityName, longitude, latitude, region, country);
+        System.out.println(requestData);
+
 
     }
 }

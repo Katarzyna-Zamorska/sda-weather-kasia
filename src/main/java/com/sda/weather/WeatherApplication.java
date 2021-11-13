@@ -7,5 +7,6 @@ public class WeatherApplication {
         LocationController locationController = new LocationController();
         UserInterface userInterface = new UserInterface(locationController);
         userInterface.run();
+        userInterface.createEntry();
     }
 }
