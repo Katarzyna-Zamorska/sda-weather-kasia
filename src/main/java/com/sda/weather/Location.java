@@ -13,15 +13,15 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cityName;
-    private String longitude; // todo it should be an int
-    private String latitude; // todo it should be an int
+    private int longitude;
+    private int latitude;
     private String region;
     private String country;
 
     public Location() {
     }
 
-    public Location(String cityName, String longitude, String latitude, String region, String country) {
+    public Location(String cityName, int longitude, int latitude, String region, String country) {
         this.cityName = cityName;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -45,19 +45,19 @@ public class Location {
         this.cityName = cityName;
     }
 
-    public String getLongitude() {
+    public int getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(int longitude) {
         this.longitude = longitude;
     }
 
-    public String getLatitude() {
+    public int getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(int latitude) {
         this.latitude = latitude;
     }
 

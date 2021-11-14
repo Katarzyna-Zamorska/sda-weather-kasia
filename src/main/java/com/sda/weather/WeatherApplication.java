@@ -26,6 +26,6 @@ public class WeatherApplication {
         LocationController locationController = new LocationController(objectMapper, locationService);
         UserInterface userInterface = new UserInterface(locationController);
         userInterface.run();
-        // userInterface.createEntry(); // todo remove it
+
     }
 }
