@@ -19,11 +19,10 @@ public class LocationController {
             String country = locationDTO.getCountry();
             Location location = locationService.createLocation(cityName, longitude, latitude, region, country);
             LocationDTO createdLocation = new LocationDTO(location.getCityName(), String.valueOf(location.getLongitude()),
-                   String.valueOf(location.getLatitude()), location.getRegion(), location.getCountry());
+                    String.valueOf(location.getLatitude()), location.getRegion(), location.getCountry());
             return objectMapper.writeValueAsString(createdLocation);
         } catch (IllegalArgumentException | JsonProcessingException e) {
             return "{\"errorMessage\": \"" + e.getMessage() + "\"}";
         }
-
     }
 }

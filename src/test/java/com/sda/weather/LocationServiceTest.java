@@ -22,8 +22,7 @@ class LocationServiceTest {
     @Test
     void createLocation_whenEverythingIsCorrect_returnsNewLocation() {
         //when
-        Location location = locationService.createLocation("Katowice", "75", "175",
-                "ślask", "Polska");
+        Location location = locationService.createLocation("Katowice", "75", "175", "ślask", "Polska");
 
         // then
         assertThat(location.getId()).isNotNull();
@@ -32,39 +31,34 @@ class LocationServiceTest {
         assertThat(location.getLatitude()).isEqualTo(175);
         assertThat(location.getRegion()).isEqualTo("ślask");
         assertThat(location.getCountry()).isEqualTo("Polska");
-
     }
 
     @Test
     void createLocation_whenRegionIsEmpty_returnsNewLocation() {
         //when
-        Location location = locationService.createLocation("Katowice", "75", "175",
-                "", "Polska");
+        Location location = locationService.createLocation("Katowice", "75", "175", "     ", "Polska");
 
         // then
         assertThat(location.getId()).isNotNull();
         assertThat(location.getCityName()).isEqualTo("Katowice");
         assertThat(location.getLongitude()).isEqualTo(75);
         assertThat(location.getLatitude()).isEqualTo(175);
-        assertThat(location.getRegion()).isEmpty();
+        assertThat(location.getRegion()).isNull();
         assertThat(location.getCountry()).isEqualTo("Polska");
     }
 
     @Test
     void createLocation_whenLongitudeIsGreaterThanCorrectValue() {
         //when
-        Location location = locationService.createLocation("Katowice", "95", "175",
-                "", "Polska");
+        Location location = locationService.createLocation("Katowice", "95", "175", "", "Polska");
 
         // then
-
     }
 
     @Test
     void createLocation_whenLongitudeIsLowerThanCorrectValue() {
         //when
-        Location location = locationService.createLocation("Katowice", "-95", "175",
-                "", "Polska");
+        Location location = locationService.createLocation("Katowice", "-95", "175", "", "Polska");
 
         // then
     }
@@ -72,25 +66,22 @@ class LocationServiceTest {
     @Test
     void createLocation_whenLatitudeIsGreaterThanCorrectValue() {
         //when
-        Location location = locationService.createLocation("Katowice", "95", "185",
-                "", "Polska");
+        Location location = locationService.createLocation("Katowice", "95", "185", "", "Polska");
         // then
     }
 
     @Test
     void createLocation_whenLatitudeIsLowerThanCorrectValue() {
         //when
-        Location location = locationService.createLocation("Katowice", "95", "-185",
-                "", "Polska");
+        Location location = locationService.createLocation("Katowice", "95", "-185", "", "Polska");
 
         // then
     }
 
-
     @Test
     void createLocation_whenCityIsEmpty_throwsAnException() {
         // when
-        Throwable throwable = catchThrowable(() -> locationService.createLocation("   ", "85", "140", "slask", "Polska"));
+        Throwable throwable = catchThrowable(() -> locationService.createLocation(" ", "85", "140", "slask", "Polska"));
 
         //then
         assertThat(throwable).isExactlyInstanceOf(IllegalArgumentException.class);
@@ -104,4 +95,7 @@ class LocationServiceTest {
         //then
         assertThat(throwable).isExactlyInstanceOf(IllegalArgumentException.class);
     }
+
+    // todo when longitude is incorrect eg. "asd" -> IllegalArgumentException
+    // todo when latitude is incorrect eg. "asd" -> IllegalArgumentException
 }
