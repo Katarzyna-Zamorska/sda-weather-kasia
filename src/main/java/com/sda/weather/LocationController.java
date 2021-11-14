@@ -1,26 +1,13 @@
 package com.sda.weather;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 
-// @RequiredArgsConstructor
+@RequiredArgsConstructor
 public class LocationController {
     private final ObjectMapper objectMapper;
     private final LocationService locationService;
 
-    // todo remove this constructor and add @RequiredArgsConstructor
-    public LocationController(ObjectMapper objectMapper, LocationService locationService) {
-        this.objectMapper = objectMapper;
-        this.locationService = locationService;
-    }
-
-    /*
-       String cityName;
-       String longitude;
-       String latitude;
-       String region;
-       String country;
-    */
     public String addLocation(String data) {
         try {
             LocationDTO locationDTO = objectMapper.readValue(data, LocationDTO.class);
@@ -29,13 +16,12 @@ public class LocationController {
             String latitude = locationDTO.getLatitude();
             String region = locationDTO.getRegion();
             String country = locationDTO.getCountry();
-            Location location = locationService.createEntry(cityName, longitude, latitude, region, country);
-            LocationDTO createdEntry = new LocationDTO();
-            // todo use objectMapper to serialize LocationDTO
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            Location location = locationService.createLocation(cityName, longitude, latitude, region, country);
+            LocationDTO createdLocation = new LocationDTO(location.getCityName(), location.getLongitude(), location.getLatitude(), location.getRegion(), location.getCountry());
+            return objectMapper.writeValueAsString(createdLocation);
+        } catch (Exception e) {
+            return "{\"errorMessage\": \"" + e.getMessage() + "\"}";
         }
 
-        return data;
     }
 }

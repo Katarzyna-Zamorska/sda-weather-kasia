@@ -58,10 +58,10 @@ public class UserInterface {
         System.out.println("Podaj nazwę kraju");
         String country = scanner.nextLine();
 
-
         String requestData = String.format("{\"cityName\":\"%s\", \"longitude\":\"%s\", \"latitude\":\"%s\", \"region\":\"%s\", \"country\":\"%s\"}",
                 cityName, longitude, latitude, region, country);
-        String response= locationController.addLocation(requestData);
+        String response = locationController.addLocation(requestData);
+        System.out.println("Odpowiedź serwera: " + response);
 
     }
 }
