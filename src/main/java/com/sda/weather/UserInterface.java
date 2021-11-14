@@ -62,6 +62,5 @@ public class UserInterface {
                 cityName, longitude, latitude, region, country);
         String response = locationController.addLocation(requestData);
         System.out.println("Odpowiedź serwera: " + response);
-
     }
 }

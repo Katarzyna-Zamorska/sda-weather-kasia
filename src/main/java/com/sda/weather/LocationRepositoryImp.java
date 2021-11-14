@@ -14,7 +14,6 @@ public class LocationRepositoryImp implements LocationRepository {
 
     @Override
     public Location createLocation(Location location) {
-
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 

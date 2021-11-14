@@ -19,7 +19,7 @@ public class LocationController {
             Location location = locationService.createLocation(cityName, longitude, latitude, region, country);
             LocationDTO createdLocation = new LocationDTO(location.getCityName(), location.getLongitude(), location.getLatitude(), location.getRegion(), location.getCountry());
             return objectMapper.writeValueAsString(createdLocation);
-        } catch (Exception e) {
+        } catch (Exception e) { // todo catch just IllegalArgumentException
             return "{\"errorMessage\": \"" + e.getMessage() + "\"}";
         }
 

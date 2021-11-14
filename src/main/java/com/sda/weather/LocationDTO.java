@@ -1,5 +1,6 @@
 package com.sda.weather;
 
+// todo you can use the lombok
 public class LocationDTO {
     private String cityName;
     private String longitude;

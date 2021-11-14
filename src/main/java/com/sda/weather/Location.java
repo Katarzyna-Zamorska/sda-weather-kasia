@@ -13,8 +13,8 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cityName;
-    private String longitude;
-    private String latitude;
+    private String longitude; // todo it should be an int
+    private String latitude; // todo it should be an int
     private String region;
     private String country;
 
