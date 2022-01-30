@@ -26,6 +26,7 @@ public class WeatherApplication {
         LocationController locationController = new LocationController(objectMapper, locationService);
         UserInterface userInterface = new UserInterface(locationController);
         userInterface.run();
+        System.out.println("test");
 
     }
 }
